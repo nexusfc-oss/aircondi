@@ -18,11 +18,36 @@ export interface RoomData {
   usage: UsageType;
   notes: string;
   layoutItems: LayoutItem[];
+  
+  // Install Type (Moved from Global)
+  installType: InstallType;
+
+  // Basic Spec
+  maker: string;
+  kw: string;
+  
+  // Installation Spec
+  floor: string; // New field
+  outdoorLoc: string;
+  hole: string;
+  wallMaterial: string;
+  outlet: string;
+  pipe: string;
+  cover: string;
+  coverColor: string;
+  
+  // Replacement Spec
+  remove: string;
+  recycle: string;
 }
 
 export interface ProjectSettings {
-  installType: InstallType;
   staffId: string;
+  customerName: string; 
+  houseType: string;
+  address: string;
+  parking: string;
+  mapAttached: boolean; 
 }
 
 export const ROOM_TYPES: RoomType[] = ['LDK', 'Japanese', 'Bedroom', 'Kids', 'Guest', 'Office', 'Other'];

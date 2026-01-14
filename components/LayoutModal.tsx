@@ -62,7 +62,7 @@ export const LayoutModal: React.FC<LayoutModalProps> = ({
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!dragRef.current || !stageRef.current || !roomRef.current) return;
 
-    const { startX, startY, initialItem } = dragRef.current;
+    const { startX, startY, initialItem, id: draggingId } = dragRef.current;
     const stageRect = stageRef.current.getBoundingClientRect();
     const roomRect = roomRef.current.getBoundingClientRect();
     
@@ -138,7 +138,7 @@ export const LayoutModal: React.FC<LayoutModalProps> = ({
     }
 
     setItems(prev => prev.map(item => 
-      item.id === dragRef.current!.id 
+      item.id === draggingId 
         ? { ...item, x: snappedX, y: snappedY, side: newSide } 
         : item
     ));
